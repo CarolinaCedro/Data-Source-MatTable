@@ -10,6 +10,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatTabsModule} from "@angular/material/tabs";
         MatSortModule,
         MatButtonModule,
         HttpClientModule,
-        MatTabsModule
+        MatTabsModule,
+        MatInputModule
     ],
   providers: [],
   bootstrap: [AppComponent]

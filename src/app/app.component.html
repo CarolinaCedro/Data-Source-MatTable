@@ -1,52 +1,22 @@
 <header>
-  <h1>Aprendendo a trazer Data Source para o Mat-table</h1>
+  <h1> DataSource whith Mat-table</h1>
 </header>
 
 <section>
 
-  <!--  <mat-tab-group>-->
-  <!--    <mat-tab label="Dados estaticos">-->
-  <!--      <h1>Teste</h1>-->
-
-  <!--      <div class="mat-elevation-z2 mat-config">-->
-  <!--        <table mat-table [dataSource]="dataSource" matSort>-->
-  <!--          &lt;!&ndash; Coluna de Nome &ndash;&gt;-->
-  <!--          <ng-container matColumnDef="nome">-->
-  <!--            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome</th>-->
-  <!--            <td mat-cell *matCellDef="let item"> {{ item.nome }} </td>-->
-  <!--          </ng-container>-->
-
-  <!--          &lt;!&ndash; Coluna de Idade &ndash;&gt;-->
-  <!--          <ng-container matColumnDef="idade">-->
-  <!--            <th mat-header-cell *matHeaderCellDef mat-sort-header> Idade</th>-->
-  <!--            <td mat-cell *matCellDef="let item"> {{ item?.idade }} </td>-->
-  <!--          </ng-container>-->
-
-  <!--          <ng-container matColumnDef="sexo">-->
-  <!--            <th mat-header-cell *matHeaderCellDef mat-sort-header> Sexo</th>-->
-  <!--            <td mat-cell *matCellDef="let item"> {{ item.sexo }} </td>-->
-  <!--          </ng-container>-->
-
-  <!--          &lt;!&ndash; Coluna de Idade &ndash;&gt;-->
-  <!--          <ng-container matColumnDef="endereco">-->
-  <!--            <th mat-header-cell *matHeaderCellDef mat-sort-header> Endereço</th>-->
-  <!--            <td mat-cell *matCellDef="let item"> {{ item?.endereco }} </td>-->
-  <!--          </ng-container>-->
-
-  <!--          &lt;!&ndash; Definição das colunas &ndash;&gt;-->
-  <!--          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-  <!--          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-  <!--        </table>-->
-  <!--&lt;!&ndash;        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>&ndash;&gt;-->
-  <!--      </div>-->
-
-  <!--    </mat-tab>-->
-
-
-  <!--    <mat-tab label="Banco Real">-->
   <div class="container">
+
+    <!--    Nesse datasource sempre devo passar a instancia do datasource criado como por exemplo esse com material
+    dataSourceBdReal: any = new MatTableDataSource<any>();  e definir tb o atributo matsort para dizer que a table
+    sofrerá sort.
+    -->
     <table mat-table [dataSource]="dataSourceBdReal" matSort>
       <!-- Coluna de Nome -->
+
+      <!-- ng-container inticando qual será referencia/nome da coluna exemplo nessa primeira que é matColumnDef="id"
+      e indico ela tb como mat-sort-header onde será sorteado baseado no header(id) e faço a iteração logo em seguida
+      trazendo os dados correspondentes  e a mesma coisa para todas as outras colunas.
+      -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
         <td mat-cell *matCellDef="let item"> {{ item?.id }} </td>
@@ -75,12 +45,12 @@
       </ng-container>
 
       <!-- Definição das colunas -->
+      <!-- Esse trecho de código representa a estrutura de uma tabela usando Angular Material.
+       Ele define o cabeçalho da tabela, as linhas de dados e um paginador para navegar entre páginas de dados.
+       displayedColumnsBdReal especifica quais colunas da tabela serão exibidas. -->
       <tr mat-header-row *matHeaderRowDef="displayedColumnsBdReal"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumnsBdReal;"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[10, 30, 50,100]" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[12, 30, 50,100]" showFirstLastButtons></mat-paginator>
   </div>
-
-  <!--    </mat-tab>-->
-  <!--  </mat-tab-group>-->
 </section>
